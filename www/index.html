@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>Trader Online</title>
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+        <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#3372DF">
+
+        <link rel="shortcut icon" href="images/favicon.png">
+
+        <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+        <!--
+        <link rel="canonical" href="http://www.example.com/">
+        -->
+
+        <link rel="stylesheet" href="css/material-icons.css">
+        <link rel="stylesheet" href="css/material.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <style>
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <span class="mdl-layout-title">Title</span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>     
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Title</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">inbox</i>Link</a>
+                    <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">inbox</i>Link</a>
+                    <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">inbox</i>Link</a>
+                    <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">inbox</i>Link</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content" ><!-- Your content goes here -->
+                    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="filaListaTareas">
+                        <h3>Lista de Tareas</h3>
+                        <ul class="mdl-list" id="listaTareas">                            
+                        </ul>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btnAddTarea">Agregar</button>
+                    </div>          
+                    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="filaDatosTarea" style="display: none">
+                        <h3>Datos de la Tarea</h3>
+                            <!-- Numeric Textfield -->
+                            <form action="#">
+                              <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="tareaTitulo">
+                                <label class="mdl-textfield__label" for="tareaTitulo">Tarea</label>
+                              </div>
+                              <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="tareaResponsable">
+                                <label class="mdl-textfield__label" for="tareaResponsable">Reponsable</label>
+                              </div>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="btnGuardarTarea">Guardar</button>
+                            </form>                    
+                    </div>          
+
+                </div>
+            </main>
+        </div>
+
+
+        <script type="text/javascript" src="js/material.min.js"></script>
+        <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+        <!-- script type="text/javascript" src="cordova.js"></script> --> 
+        <script type="text/javascript" src="js/TareasService.js"></script>
+        <script type="text/javascript" src="js/TareasController.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
